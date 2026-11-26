@@ -1,0 +1,16 @@
+{
+  "name": "phishguard-ai",
+  "version": "1.0.0",
+  "description": "Enterprise Phishing Detection System with Liquid Glass UX and Scikit-Learn ML",
+  "scripts": {
+    "dev:backend": "powershell -Command \".venv\\Scripts\\python.exe -m uvicorn backend.main:app --host 127.0.0.1 --port 8000 --reload\"",
+    "dev:frontend": "npm --prefix frontend run dev",
+    "dev": "npx concurrently -k -p \"[{name}]\" -n \"backend,frontend\" -c \"blue.bold,magenta.bold\" \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "build:frontend": "npm --prefix frontend run build",
+    "test:backend": "powershell -Command \".venv\\Scripts\\python.exe -m pytest ml/tests backend/tests -v\"",
+    "lint:frontend": "npm --prefix frontend run lint"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.5"
+  }
+}
